@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentManager;
 //Template for reusable fragment hosting Activity
 public abstract class SingleFragmentActivity extends FragmentActivity {
 
+    //Abstract method that subclasses must implement to define the fragment
     protected abstract Fragment createFragment();
 
     @Override

@@ -8,30 +8,33 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 
-public class CrimeActivity extends FragmentActivity {
+public class CrimeActivity extends SingleFragmentActivity {
+
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_fragment);
+//
+//        //Add CrimeFragment using FragmentManager
+//        FragmentManager fm = getSupportFragmentManager();
+//        Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
+//
+//        //If there is no existing fragment saved by FragmentManager  Activity now hosting fragment
+//        if (fragment == null) {
+//            fragment = new CrimeFragment();
+//            fm.beginTransaction()
+//                    .add(R.id.fragmentContainer, fragment)
+//                    .commit();
+//        }
+//
+//
+//    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fragment);
-
-        //Add CrimeFragment using FragmentManager
-        FragmentManager fm = getSupportFragmentManager();
-        Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);
-
-        //If there is no existing fragment saved by FragmentManager  Activity now hosting fragment
-        if (fragment == null) {
-            fragment = new CrimeFragment();
-            fm.beginTransaction()
-                    .add(R.id.fragmentContainer, fragment)
-                    .commit();
-        }
-
-
+    protected Fragment createFragment() {
+        return new CrimeFragment();
     }
-
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
