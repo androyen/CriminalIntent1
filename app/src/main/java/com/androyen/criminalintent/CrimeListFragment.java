@@ -30,7 +30,8 @@ public class CrimeListFragment extends ListFragment {
         mCrimes = CrimeLab.get(getActivity()).getCrimes();
 
         //ArrayAdapter for the ListView
-        ArrayAdapter<Crime> adapter = new ArrayAdapter<Crime>(getActivity(), android.R.layout.simple_list_item_1, mCrimes);
+//        ArrayAdapter<Crime> adapter = new ArrayAdapter<Crime>(getActivity(), android.R.layout.simple_list_item_1, mCrimes);
+        CrimeAdapter adapter = new CrimeAdapter(mCrimes);
         setListAdapter(adapter);
 
     }
@@ -39,7 +40,8 @@ public class CrimeListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
 
-        Crime c = (Crime)(getListAdapter()).getItem(position);
+//        Crime c = (Crime)(getListAdapter()).getItem(position);
+        Crime c = ((CrimeAdapter)getListAdapter()).getItem(position);
         Log.d(TAG, c.getTitle() + " was clicked");
     }
 
@@ -70,6 +72,7 @@ public class CrimeListFragment extends ListFragment {
             CheckBox solvedCheckBox = (CheckBox)convertView.findViewById(R.id.crime_list_item_solvedCheckBox);
             solvedCheckBox.setChecked(c.isSolved());
 
+            //Return view to ListView
             return convertView;
         }
     }
