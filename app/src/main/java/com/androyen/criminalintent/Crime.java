@@ -52,5 +52,11 @@ public class Crime {
         mSolved = solved;
     }
 
+    //Overriding toString() to display more useful data in CrimeListFragment listView
+    @Override
+    public String toString() {
+        return mTitle;
+    }
+
 
 }
