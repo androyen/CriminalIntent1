@@ -2,6 +2,7 @@ package com.androyen.criminalintent;
 
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,10 @@ public class CrimeListFragment extends ListFragment {
 
         //Get the singleton for the list of crimes
         mCrimes = CrimeLab.get(getActivity()).getCrimes();
+
+        //ArrayAdapter for the ListView
+        ArrayAdapter<Crime> adapter = new ArrayAdapter<Crime>(getActivity(), android.R.layout.simple_list_item_1, mCrimes);
+        setListAdapter(adapter);
 
     }
 
